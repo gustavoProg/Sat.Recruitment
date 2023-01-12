@@ -1,17 +1,19 @@
 ﻿using System;
 using System.IO;
 
-namespace Sat.Recruitment.Api.Controllers
+namespace Sat.Recruitment.DataAccess.Implementations
 {
-    public partial class UsersController
+    public class BaseDA
     {
-        private StreamReader ReadUsersFromFile()
+
+        internal StreamReader ReadUsersFromFile(string filePathName)
         {
-            var path = Directory.GetCurrentDirectory() + "/Files/Users.txt";
+            var path = AppDomain.CurrentDomain.BaseDirectory + filePathName;
 
             FileStream fileStream = new FileStream(path, FileMode.Open);
 
             StreamReader reader = new StreamReader(fileStream);
+
             return reader;
         }
     }

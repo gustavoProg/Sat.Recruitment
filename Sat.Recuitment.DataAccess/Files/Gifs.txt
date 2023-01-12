@@ -1,0 +1,4 @@
+Normal;10;100;0.8
+Normal;100;;0.12
+SuperUser;100;;0.20
+Premium;100;;2
