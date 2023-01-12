@@ -1,5 +1,7 @@
-﻿using Sat.Recruitment.DataAccess.Interfaces;
-using Sat.Recruitment.Core.Entities;
+﻿using Sat.Recruitment.Core.Entities;
+using Sat.Recruitment.Core.Enums;
+using Sat.Recruitment.DataAccess.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace Sat.Recruitment.DataAccess.Implementations
@@ -39,7 +41,7 @@ namespace Sat.Recruitment.DataAccess.Implementations
                     Email = line.Split(',')[1].ToString(),
                     Phone = line.Split(',')[2].ToString(),
                     Address = line.Split(',')[3].ToString(),
-                    UserType = line.Split(',')[4].ToString(),
+                    UserType = Enum.Parse<UserType>(line.Split(',')[4].ToString()),
                     Money = decimal.Parse(line.Split(',')[5].ToString()),
                 };
                 _users.Add(user);

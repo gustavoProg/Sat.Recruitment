@@ -1,4 +1,6 @@
-﻿namespace Sat.Recruitment.Core.Entities
+﻿using Sat.Recruitment.Core.Enums;
+
+namespace Sat.Recruitment.Core.Entities
 {
     public class User
     {
@@ -10,7 +12,7 @@
 
         public string Phone { get; set; }
 
-        public string UserType { get; set; }
+        public UserType UserType { get; set; }
 
         public decimal Money { get; set; }
     }

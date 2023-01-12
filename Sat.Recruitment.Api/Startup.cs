@@ -14,6 +14,7 @@ using Sat.Recruitment.Service.Mappers;
 using System;
 using System.IO;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 #pragma warning disable CS1591 // Disable documentation for this file.
 
@@ -47,6 +48,7 @@ namespace Sat.Recruitment.Api
                 {
                     options.JsonSerializerOptions.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
                     options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
                 });
 
             services.AddRouting(options => options.LowercaseUrls = true);

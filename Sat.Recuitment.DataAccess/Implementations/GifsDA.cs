@@ -1,5 +1,6 @@
-﻿using Sat.Recruitment.DataAccess.Interfaces;
-using Sat.Recruitment.Core.Entities;
+﻿using Sat.Recruitment.Core.Entities;
+using Sat.Recruitment.Core.Enums;
+using Sat.Recruitment.DataAccess.Interfaces;
 using System;
 using System.Collections.Generic;
 
@@ -31,7 +32,7 @@ namespace Sat.Recruitment.DataAccess.Implementations
 
                 var gifRange = new GifRange();
 
-                gifRange.UserType = lineFields[0].ToString();
+                gifRange.UserType = Enum.Parse<UserType>(lineFields[0].ToString());
 
                 gifRange.Min = string.IsNullOrEmpty(lineFields[1].ToString()) ? decimal.MinValue : Convert.ToDecimal(lineFields[1]);
 

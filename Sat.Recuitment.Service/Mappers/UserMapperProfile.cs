@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Sat.Recruitment.Core.Entities;
 using Sat.Recruitment.Recruitment.Core.DTOs;
-using System.Globalization;
 
 namespace Sat.Recruitment.Service.Mappers
 {
@@ -9,10 +8,7 @@ namespace Sat.Recruitment.Service.Mappers
     {
         public UserMapperProfile()
         {
-            CreateMap<UserCreateRequestDTO, User>()
-                .ForMember(dest => dest.Money,
-                           opt => opt.MapFrom(src => decimal.Parse(src.Money, CultureInfo.InvariantCulture))
-                            );
+            CreateMap<UserCreateRequestDTO, User>();
 
             CreateMap<User, UserCreateResponseDTO>();
 

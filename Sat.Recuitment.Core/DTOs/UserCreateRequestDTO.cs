@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Sat.Recruitment.Core.Enums;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Sat.Recruitment.Recruitment.Core.DTOs
 {
@@ -17,8 +19,9 @@ namespace Sat.Recruitment.Recruitment.Core.DTOs
         [Required(ErrorMessage = "The phone is required")]
         public string Phone { get; set; }
 
-        public string UserType { get; set; }
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public UserType UserType { get; set; }
 
-        public string Money { get; set; }
+        public decimal Money { get; set; }
     }
 }

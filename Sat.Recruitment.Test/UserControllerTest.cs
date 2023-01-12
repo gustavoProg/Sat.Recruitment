@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Logging;
 using Moq;
 using Sat.Recruitment.Api.Controllers;
+using Sat.Recruitment.Core.Enums;
 using Sat.Recruitment.DataAccess.Implementations;
 using Sat.Recruitment.Recruitment.Core.DTOs;
 using Sat.Recruitment.Service.Implementations;
@@ -45,8 +46,8 @@ namespace Sat.Recruitment.Test
                 Email = "mike@gmail.com",
                 Address = "Av. Juan G",
                 Phone = "+349 1122354215",
-                UserType = "Normal",
-                Money = "124"
+                UserType = UserType.Normal,
+                Money = 124
             };
         }
 

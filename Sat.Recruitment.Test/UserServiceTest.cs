@@ -1,6 +1,7 @@
 using AutoMapper;
 using Microsoft.Extensions.Logging;
 using Moq;
+using Sat.Recruitment.Core.Enums;
 using Sat.Recruitment.Core.Exceptions;
 using Sat.Recruitment.DataAccess.Implementations;
 using Sat.Recruitment.Recruitment.Core.DTOs;
@@ -39,26 +40,26 @@ namespace Sat.Recruitment.Test
                 Email = "mike@gmail.com",
                 Address = "Av. Juan G",
                 Phone = "+349 1122354215",
-                UserType = "Normal",
-                Money = "124"
+                UserType = UserType.Normal,
+                Money = 124
             };
         }
 
 
         [Theory]
-        [InlineData("Normal", "10", 10)]
-        [InlineData("Normal", "11", (11 * 1.8))]
-        [InlineData("Normal", "99", (99 * 1.8))]
-        [InlineData("Normal", "100", 100)]
-        [InlineData("Normal", "101", (101 * 1.12))]
-        [InlineData("Normal", "99999", (99999 * 1.12))]
-        [InlineData("SuperUser", "1", 1)]
-        [InlineData("SuperUser", "100", 100)]
-        [InlineData("SuperUser", "101", (101 * 1.2))]
-        [InlineData("Premium", "1", 1)]
-        [InlineData("Premium", "100", 100)]
-        [InlineData("Premium", "101", (101 * 3))]
-        public async Task CreateUser_CalculateGif_Ok(string userType, string money, decimal expectedMoney)
+        [InlineData(UserType.Normal, 10, 10)]
+        [InlineData(UserType.Normal, 11, (11 * 1.8))]
+        [InlineData(UserType.Normal, 99, (99 * 1.8))]
+        [InlineData(UserType.Normal, 100, 100)]
+        [InlineData(UserType.Normal, 101, (101 * 1.12))]
+        [InlineData(UserType.Normal, 99999, (99999 * 1.12))]
+        [InlineData(UserType.SuperUser, 1, 1)]
+        [InlineData(UserType.SuperUser, 100, 100)]
+        [InlineData(UserType.SuperUser, 101, (101 * 1.2))]
+        [InlineData(UserType.Premium, 1, 1)]
+        [InlineData(UserType.Premium, 100, 100)]
+        [InlineData(UserType.Premium, 101, (101 * 3))]
+        public async Task CreateUser_CalculateGif_Ok(UserType userType, decimal money, decimal expectedMoney)
         {
             _newUser.UserType = userType;
             _newUser.Money = money;

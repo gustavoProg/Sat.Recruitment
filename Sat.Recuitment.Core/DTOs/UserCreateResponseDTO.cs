@@ -1,9 +1,5 @@
-﻿
-
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Threading.Tasks;
+﻿using Sat.Recruitment.Core.Enums;
+using System.Text.Json.Serialization;
 
 namespace Sat.Recruitment.Recruitment.Core.DTOs
 {
@@ -17,7 +13,8 @@ namespace Sat.Recruitment.Recruitment.Core.DTOs
 
         public string Phone { get; set; }
 
-        public string UserType { get; set; }
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public UserType UserType { get; set; }
 
         public decimal Money { get; set; }
     }
