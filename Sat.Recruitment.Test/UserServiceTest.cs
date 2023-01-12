@@ -18,7 +18,7 @@ namespace Sat.Recruitment.Test
     {
         private readonly IUserService _userService;
 
-        private UserCreateRequestDTO _newUser;
+        private readonly UserCreateRequestDTO _newUser;
 
         public UserServiceTest()
         {

@@ -22,7 +22,7 @@ namespace Sat.Recruitment.Test
 
         private readonly UsersController _userController;
 
-        private UserCreateRequestDTO _newUser;
+        private readonly UserCreateRequestDTO _newUser;
 
         public UserControllerTest()
         {
