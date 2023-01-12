@@ -8,6 +8,8 @@ using System;
 using System.Net;
 using System.Threading.Tasks;
 
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible públicamente
+
 namespace Sat.Recruitment.Api.ErrorHandling
 {
     public class ExceptionMiddleware

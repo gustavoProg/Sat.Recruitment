@@ -15,6 +15,8 @@ using System;
 using System.IO;
 using System.Text.Json;
 
+#pragma warning disable CS1591 // Disable documentation for this file.
+
 namespace Sat.Recruitment.Api
 {
     public class Startup

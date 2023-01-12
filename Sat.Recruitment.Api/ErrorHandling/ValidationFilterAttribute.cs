@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using Sat.Recruitment.Core.DTOs;
 using Sat.Recruitment.Core.Enums;
+using System.Linq;
+
+#pragma warning disable CS1591 // Disable documentation for this file.
 
 namespace Sat.Recruitment.Api.ErrorHandling
 {
@@ -11,8 +14,12 @@ namespace Sat.Recruitment.Api.ErrorHandling
         {
             if (!context.ModelState.IsValid)
             {
+                var auxiliar = context.ModelState.Values.SelectMany(x => x.Errors.Select(y => $"{y.ErrorMessage}."));
+
+                var errorInfo = string.Join(' ', auxiliar.ToList());
+
                 context.Result = new BadRequestObjectResult(
-                    new ErrorResponseDTO(ApplicationErrors.InvalidInput, context.ModelState.ToString()));
+                    new ErrorResponseDTO(ApplicationErrors.InvalidInput, errorInfo));
             }
         }
         public void OnActionExecuted(ActionExecutedContext context) { }

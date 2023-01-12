@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Sat.Recruitment.Api.Controllers
 {
+    /// <summary>
+    /// Users
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     [Produces("application/json")]
@@ -15,6 +18,10 @@ namespace Sat.Recruitment.Api.Controllers
     {
         private readonly IUserService _userService;
 
+        /// <summary>
+        /// User constructor
+        /// </summary>
+        /// <param name="userService"></param>
         public UsersController(IUserService userService)
         {
             _userService = userService;
